@@ -30,6 +30,7 @@ app.use("*", (req, res, next) => {
 app.use((err, req, res, next) => {
   err.statuscode = err.statuscode || 500;
   err.status = err.status || "error";
+  console.log(err.stack);
   res.status(err.statuscode).json({
     status: err.status,
     message: err.message,
